@@ -1,9 +1,11 @@
 <h1>Clothing Store</h1>
 
-<h2><% @product.each do |clothing| %></h2>
-  <h2><%= clothing.product_type %></h2>
-  <img src= "clothing.image">
-  <h2><%= clothing.price %></h2>
-  <h2><%= clothing.description %></h2>
-  <br>
-<% end %>
+<div>
+  <h2><% @products.each do |product| %></h2>
+    <h2 class=border_left><%= product.product_type %></h2>
+    <img src= "<%= product.image %>" class="img-thumbnail">
+    <h2>$<%= product.price %></h2>
+    <h2 class=border_right><%= product.description %></h2>
+    <br>
+  <% end %>
+<div>
