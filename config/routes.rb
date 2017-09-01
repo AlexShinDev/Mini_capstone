@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  get '/all_products_url' => 'products#all_products_action'
+  get '/' => 'products#index'
+  get '/products' => 'products#index'
+  get '/products/:id' => 'products#show'
+#new and create pair
+  get '/products/'
 end

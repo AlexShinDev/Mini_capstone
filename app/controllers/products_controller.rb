@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
-  def all_products_action
+  def index
     @products = Product.all
-    render 'all_products_page.html.erb'
+  end
+
+  def show
+    @product = Product.find_by(id: params[:id])
+    #Product.find()
   end
 end

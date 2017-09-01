@@ -1,8 +1,7 @@
-<h1>Clothing Store</h1>
 
 <div>
   <h2><% @products.each do |product| %></h2>
-    <h2 class=border_left><%= product.product_type %></h2>
+    <h2 class=border_left> <a href="/products/<%= product.id %>"><%= product.product_type %></a> </h2>
     <img src= "<%= product.image %>" class="img-thumbnail">
     <h2>$<%= product.price %></h2>
     <h2 class=border_right><%= product.description %></h2>
