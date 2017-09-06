@@ -4,3 +4,6 @@
 <img src= "<%= @product.image %>">
 <h2><%= @product.price %></h2>
 <h2><%= @product.description %></h2>
+
+<%= link_to "Delete Product", "/products/#{ @product.id }", method: :delete, class: "btn btn-danger"%>
+<%= link_to "Edit Product", "/products/#{@product.id}/edit", method: :get, class: "btn btn-primary" %>

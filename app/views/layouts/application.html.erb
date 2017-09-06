@@ -9,7 +9,20 @@
   </head>
 
   <body>
+  <ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="/products">Home</a></li>
+    <li role="presentation"><a href="/products/new">Profile</a></li>
+  </ul>
   <h1><a href="/">Clothing Store</a><h1>
-    <%= yield %>
+    <div class="container">
+      <% flash.each do |name, message| %>
+        <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= message %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+   
   </body>
 </html>
