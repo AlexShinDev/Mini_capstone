@@ -1,9 +1,17 @@
-
+<% if @product.discounted? %>
+  <h4>Discounted Item!</h4>
+<% else %>
+  <h4>Everyday Sale!</h4>
+<% end %>
 
 <h2><%= @product.product_type %></h2>
 <img src= "<%= @product.image %>">
-<h2><%= @product.price %></h2>
+<h2 class="<%= 'red-price' if @product.discounted? %>">Original Price: <%= number_to_currency(@product.price) %></h2>
+<h2>Tax: <%= number_to_currency(@product.tax) %></h2>
+<h2>Total: <%= number_to_currency(@product.total) %></h2>
 <h2><%= @product.description %></h2>
+
+<h5>Updated On: <%= @product.friendly_update_at %></h5>
 
 <%= link_to "Delete Product", "/products/#{ @product.id }", method: :delete, class: "btn btn-danger"%>
 <%= link_to "Edit Product", "/products/#{@product.id}/edit", method: :get, class: "btn btn-primary" %>
