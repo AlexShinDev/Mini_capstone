@@ -1,10 +1,10 @@
  <div class="form_style" >
-  <%= form_tag "/products/create", method: :post do %>
+  <%= form_tag "/products", method: :post do %>
     <div>
       Product:<br> <input type="text" name="product_type">
     </div>
     <div>
-      Image:<br> <input type="text" name="image">
+      <!-- Image:<br> <input type="text" name="image"> -->
     </div>
     <div>
       Price: <br><input type="text" name="price">
@@ -15,5 +15,11 @@
     <div>
       <input type="submit" value="New Product">
     </div>
-  <% end %>
+    <!-- <div>
+      Supplier:
+      <select name="supplier_id">
+        
+      </select>
+    </div>
+ -->  <% end %>
 </div>

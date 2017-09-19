@@ -21,18 +21,6 @@ class ProductsController < ApplicationController
       # end
       # @products = arr
     end
-    
-    if random_attribute
-      arr = []
-
-      @products.each do |product|
-        arr << product[:id]
-      end
-
-      rand_num = arr.shuffle
-      @products = @products.find(rand_num.first)
-    end
-
   end
 
   def new
@@ -84,4 +72,5 @@ class ProductsController < ApplicationController
     flash[:danger] = "Successfully deleted"
     redirect_to "/products"
   end
+
 end
