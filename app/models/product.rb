@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  has_many :category_product
+  has_many :categories, through: :category_product
 
   has_many :orders
   # def supplier
@@ -34,6 +36,9 @@ class Product < ApplicationRecord
     else
       "https://st.depositphotos.com/1875497/3308/i/950/depositphotos_33080083-stock-photo-empty-sign-on-the-old.jpg"
     end
+  end
 
+  def category
+    
   end
 end

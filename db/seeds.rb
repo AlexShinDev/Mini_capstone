@@ -79,17 +79,42 @@
 #                 phone: "940-579-1928"
 #                 )
 
-Image.create!(
-                product_id: 2,
-                url: "http://www.patagonia.com/dis/dw/image/v2/ABBM_PRD/on/demandware.static/-/Sites-patagonia-master/default/dwf146646c/images/hi-res/45651_TRUT.jpg?sw=750&sh=750&sm=fit&sfrm=png"
-                )
+# Image.create!(
+#                 product_id: 2,
+#                 url: "http://www.patagonia.com/dis/dw/image/v2/ABBM_PRD/on/demandware.static/-/Sites-patagonia-master/default/dwf146646c/images/hi-res/45651_TRUT.jpg?sw=750&sh=750&sm=fit&sfrm=png"
+#                 )
 
-Image.create!(
-                product_id: 2,
-                url: "http://assets.academy.com/mgen/50/10740350.jpg"
-                )
+# Image.create!(
+#                 product_id: 2,
+#                 url: "http://assets.academy.com/mgen/50/10740350.jpg"
+#                 )
 
-Image.create!(
-                product_id: 2,
-                url: "http://www.patagonia.com/dis/dw/image/v2/ABBM_PRD/on/demandware.static/-/Sites-patagonia-master/default/dwc89f3efd/images/hi-res/52921_CTYB.jpg?sw=750&sh=750&sm=fit&sfrm=png"
-                )
+# Image.create!(
+#                 product_id: 2,
+#                 url: "http://www.patagonia.com/dis/dw/image/v2/ABBM_PRD/on/demandware.static/-/Sites-patagonia-master/default/dwc89f3efd/images/hi-res/52921_CTYB.jpg?sw=750&sh=750&sm=fit&sfrm=png"
+#                 )
+
+# Category.create!(name: "Top")
+# Category.create!(name: "Bottom")
+# Category.create!(name: "Cold Weather")
+# Category.create!(name: "Warm Weather")
+
+CategoryProduct.create!(product_id: 2, category_id: 1)
+CategoryProduct.create!(product_id: 2, category_id: 3)
+CategoryProduct.create!(product_id: 2, category_id: 4)
+CategoryProduct.create!(product_id: 3, category_id: 1)
+CategoryProduct.create!(product_id: 3, category_id: 3)
+CategoryProduct.create!(product_id: 3, category_id: 4)
+CategoryProduct.create!(product_id: 4, category_id: 1)
+CategoryProduct.create!(product_id: 4, category_id: 3)
+CategoryProduct.create!(product_id: 5, category_id: 2)
+CategoryProduct.create!(product_id: 5, category_id: 4)
+CategoryProduct.create!(product_id: 6, category_id: 1)
+CategoryProduct.create!(product_id: 6, category_id: 2)
+CategoryProduct.create!(product_id: 6, category_id: 3)
+CategoryProduct.create!(product_id: 6, category_id: 4)
+
+
+
+
+

@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
     desc_attribute = params[:order_by]
     disc_attribute = params[:disc]
     random_attribute = params[:rand]
+    category_attribute = params[:category]
 
     if sort_attribute  && desc_attribute 
       @products = @products.order(sort_attribute => desc_attribute)
@@ -21,6 +22,11 @@ class ProductsController < ApplicationController
       # end
       # @products = arr
     end
+
+    if category_attribute
+      @products = Category.find_by(name: category_attribute).products
+    end
+
   end
 
   def new
