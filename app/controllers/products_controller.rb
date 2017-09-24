@@ -16,11 +16,6 @@ class ProductsController < ApplicationController
 
     if disc_attribute
       @products = @products.where("price < ?", disc_attribute)
-      # arr = []
-      # @products.each do |product|
-      #   arr << product if product.discounted?
-      # end
-      # @products = arr
     end
 
     if category_attribute
@@ -78,5 +73,4 @@ class ProductsController < ApplicationController
     flash[:danger] = "Successfully deleted"
     redirect_to "/products"
   end
-
 end

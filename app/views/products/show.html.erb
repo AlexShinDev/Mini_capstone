@@ -5,7 +5,6 @@
 <% end %>
 
 <h2><%= @product.product_type %></h2>
-<!-- <img src= "<%= @product.image %>"> -->
 <h2 class="<%= 'red-price' if @product.discounted? %>">Original Price: <%= number_to_currency(@product.price) %></h2>
 <h2>Tax: <%= number_to_currency(@product.tax) %></h2>
 <h2>Total: <%= number_to_currency(@product.total) %></h2>
@@ -16,6 +15,7 @@
 <h6>Supplier: <%= @product.supplier.name %></h6>
 <%= link_to "Delete Product", "/products/#{ @product.id }", method: :delete, class: "btn btn-danger"%>
 <%= link_to "Edit Product", "/products/#{@product.id}/edit", method: :get, class: "btn btn-primary" %>
+
 <h2>Categories:</h2>
 <% @product.categories.each do |category|%>
   <h4><%= category.name %></h2>
@@ -29,5 +29,5 @@
     Quantity: <input type="text" name="quantity">
   </div>
   <div>
-  <input type="submit" value="Buy Now!!">
+  <input type="submit" value="Add To Cart">
   </div>

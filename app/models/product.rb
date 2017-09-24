@@ -1,6 +1,10 @@
 class Product < ApplicationRecord
-  has_many :category_product
-  has_many :categories, through: :category_product
+  has_many :category_products
+  has_many :categories, through: :category_products
+
+  has_many :carted_products
+  has_many :users, through carted_products
+  has_many :orders, through carted_products
 
   has_many :orders
   # def supplier
@@ -22,7 +26,7 @@ class Product < ApplicationRecord
     price * 0.09
   end
 
-  def first_name
+  def first_image
     @products = Image.where(product_id: 2).first
   end
 
