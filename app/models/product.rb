@@ -3,13 +3,11 @@ class Product < ApplicationRecord
   has_many :categories, through: :category_products
 
   has_many :carted_products
-  has_many :users, through carted_products
-  has_many :orders, through carted_products
 
-  has_many :orders
-  # def supplier
-  #   Supplier.find_by(id: self.supplier_id)
-  # end
+  # has_many :orders
+  # # def supplier
+  # #   Supplier.find_by(id: self.supplier_id)
+  # # end
   belongs_to :supplier
 
   has_many :image

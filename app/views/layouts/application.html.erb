@@ -30,7 +30,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
+              <% if current_user && current_user.admin %>
                 <li><a href="/products/new">New Product</a></li>
+              <% end %>
                 <li><a href="/products?sort=price">Sort Price:Lowest</a></li>
                 <li><a href="/products?sort=price&order_by=desc"price">Sort Price: Highest</a></li>
                 <li role="separator" class="divider"></li>

@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show]
   def index
     @products = Product.all
 
@@ -25,10 +26,12 @@ class ProductsController < ApplicationController
   end
 
   def new
+    redirect_to '/' unless current_user && current_user.admin
 
   end
 
   def create
+    admin
     @product = Product.new(
                             product_type: params[:product_type],
                             image: params[:image],
@@ -42,15 +45,18 @@ class ProductsController < ApplicationController
 
 
   def show
+    admin
     @product = Product.find(params[:id])
     #Product.find()
   end
 
   def edit
+    admin
     @product = Product.find(params[:id])
   end
 
   def update
+    admin
     @product = Product.find(params[:id])
 
     @product.assign_attributes(
@@ -67,6 +73,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    admin
     product = Product.find(params[:id])
 
     product.destroy
