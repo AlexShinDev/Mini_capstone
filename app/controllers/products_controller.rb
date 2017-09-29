@@ -27,53 +27,60 @@ class ProductsController < ApplicationController
 
   def new
     redirect_to '/' unless current_user && current_user.admin
+    @product = Product.new
 
   end
 
   def create
-    admin
+    
     @product = Product.new(
                             product_type: params[:product_type],
-                            image: params[:image],
                             price: params[:price],
                             description: params[:description]
                             )
-     @product.save
-     flash[:success] = "Successfully created"
-     redirect_to "/products/#{@product.id}"
+     if @product.save
+      flash[:success] = "Successfully created"
+      redirect_to "/products/#{@product.id}"
+     else
+      @suppliers = Supplier.all
+      @errors = @product.errors.full_messages
+      render "new.html.web"
+     end
   end
 
 
   def show
-    admin
+    
     @product = Product.find(params[:id])
     #Product.find()
   end
 
   def edit
-    admin
     @product = Product.find(params[:id])
   end
 
   def update
-    admin
+    
     @product = Product.find(params[:id])
 
     @product.assign_attributes(
                             product_type: params[:product_type],
-                            image: params[:image],
                             price: params[:price],
                             description: params[:description]
                             )
   
     
-    @product.save
-    flash[:warning] = "Successfully updated"
-    redirect_to "/products/#{@product.id}"
+    if @product.save
+      flash[:warning] = "Successfully updated"
+      redirect_to "/products/#{@product.id}"
+    else
+      @errors = @product.errors.full_messages
+      render "edit.html.web"
+    end
   end
 
   def destroy
-    admin
+    
     product = Product.find(params[:id])
 
     product.destroy

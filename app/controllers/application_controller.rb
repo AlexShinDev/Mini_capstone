@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  def guest
-    @guest ||= User.find_by(id:session[:user_id] if session[:user_id] == nil)
-  end
+  # def guest
+  #   @guest ||= User.find_by(id:session[:user_id] if session[:user_id] == nil)
+  # end
 
 
 

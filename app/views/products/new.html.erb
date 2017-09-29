@@ -1,16 +1,23 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <h2><%= error %></h2>
+  <% end %>  
+<% end %>
+
+
  <div class="form_style" >
   <%= form_tag "/products", method: :post do %>
     <div>
-      Product:<br> <input type="text" name="product_type">
+      Product:<br> <input type="text" name="product_type" value="<%= @product.product_type %>">
     </div>
     <div>
       <!-- Image:<br> <input type="text" name="image"> -->
     </div>
     <div>
-      Price: <br><input type="text" name="price">
+      Price: <br><input type="text" name="price" value="<%= @product.price %>">
     </div>
     <div>
-      Description: <br><input type="text" name="description">
+      Description: <br><input type="text" name="description" value="<%= @product.description %>">
     </div>
     <div>
       <input type="submit" value="New Product">

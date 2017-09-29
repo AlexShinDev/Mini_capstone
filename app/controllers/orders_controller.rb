@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-
+  before_action :authenticate_user!
   def create
     product = Product.find(params[:product_id])
     subtotal = product.price * params[:quantity].to_i

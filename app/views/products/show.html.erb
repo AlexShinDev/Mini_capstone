@@ -13,21 +13,31 @@
 <h5>Updated On: <%= @product.friendly_update_at %></h5>
 
 <h6>Supplier: <%= @product.supplier.name %></h6>
-<%= link_to "Delete Product", "/products/#{ @product.id }", method: :delete, class: "btn btn-danger"%>
-<%= link_to "Edit Product", "/products/#{@product.id}/edit", method: :get, class: "btn btn-primary" %>
+
+<% if current_user && current_user.admin %>
+  <%= link_to "Delete Product", "/products/#{ @product.id }", method: :delete, class: "btn btn-danger"%>
+  <%= link_to "Edit Product", "/products/#{@product.id}/edit", method: :get, class: "btn btn-primary" %>
+<% end %>
 
 <h2>Categories:</h2>
+
 <% @product.categories.each do |category|%>
   <h4><%= category.name %></h2>
 <% end %>
 
-<%= form_tag '/carted_products', method: :post %>
-  <div>
-    Product_id: <input type="text" name="product_id">
-  </div>
-  <div>
-    Quantity: <input type="text" name="quantity">
-  </div>
-  <div>
-  <input type="submit" value="Add To Cart">
-  </div>
+<% if current_user %>
+  <%= form_tag '/carted_products', method: :post do %>
+    <div>
+      Product_id: <input type="text" name="product_id">
+    </div>
+    <div>
+      Quantity: <input type="text" name="quantity">
+    </div>
+    <div>
+    <input type="submit" value="Add To Cart">
+    </div>
+  <% end %>
+
+<% else %>
+   <p>Please <a href="/login">Login</a> to purchase items</p>
+<% end %>

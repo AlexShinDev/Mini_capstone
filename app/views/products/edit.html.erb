@@ -1,14 +1,20 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <h2><%= error %></h2>
+  <% end %>  
+<% end %>
+
 <h1>Edit a Product</h1>
 <%= form_tag "/products/#{@product.id}", method: :patch do %>
   <div>
-    Title: <input type="text" name="product_type">
+    Title: <input type="text" name="product_type" value="<%= @product.product_type %>">
   </div>
 
   <div>
-    price: <input type="text" name="price">
+    price: <input type="text" name="price" value="<%= @product.price %>">
   </div>
   <div>
-    description: <input type="text" name="description">
+    description: <input type="text" name="description" value="<%= @product.description %>">
   </div>
   <div>
     <input class="btn btn-primary" type="submit" value="Update Product">
