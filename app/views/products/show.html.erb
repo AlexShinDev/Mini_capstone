@@ -4,6 +4,10 @@
   <h4>Everyday Sale!</h4>
 <% end %>
 
+<%= form_tag %>
+  <%= hidden_field_tag , @wiki_article.title %>
+<% end %>
+
 <h2><%= @product.product_type %></h2>
 <h2 class="<%= 'red-price' if @product.discounted? %>">Original Price: <%= number_to_currency(@product.price) %></h2>
 <h2>Tax: <%= number_to_currency(@product.tax) %></h2>

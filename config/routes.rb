@@ -20,4 +20,5 @@ Rails.application.routes.draw do
 
   get '/carted_products' => 'carted_products#index'
   post '/carted_products' => 'carted_products#create'
+  #don't need a carted_products new page because it is substituted by the form in products view
 end
