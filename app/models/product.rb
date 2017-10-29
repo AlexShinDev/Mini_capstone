@@ -13,7 +13,6 @@ class Product < ApplicationRecord
   has_many :image
 
   validates :product_type, presence: true
-  validates :name, uniqueness: true
   validates :description, length: { minimum: 2}
   validates :description, length: { maximum: 500}
 
