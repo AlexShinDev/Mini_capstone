@@ -12,11 +12,6 @@ class Product < ApplicationRecord
 
   has_many :image
 
-  validates :product_type, presence: true
-  validates :description, length: { minimum: 2}
-  validates :description, length: { maximum: 500}
-
-
   def friendly_update_at
     updated_at.strftime("%B %e, %Y ")
   end
